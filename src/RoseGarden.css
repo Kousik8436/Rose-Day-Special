@@ -1,0 +1,491 @@
+.rose-garden {
+  width: 100vw;
+  height: 100vh;
+  background: 
+    radial-gradient(circle at 25% 75%, rgba(139, 0, 0, 0.3) 0%, transparent 60%),
+    radial-gradient(circle at 75% 25%, rgba(220, 20, 60, 0.3) 0%, transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(255, 20, 147, 0.2) 0%, transparent 70%),
+    linear-gradient(135deg, #8b0000, #dc143c, #ff1493, #c71585, #ff69b4, #ffb3d9);
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.rose-garden::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="25" fill="%23ffffff" opacity="0.3">🌹</text></svg>'),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="20" fill="%23ffb3d9" opacity="0.25">🌸</text></svg>'),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="18" fill="%23ffffff" opacity="0.2">✨</text></svg>'),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="22" fill="%23ffc1e3" opacity="0.28">🌷</text></svg>'),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="16" fill="%23ffffff" opacity="0.18">🌼</text></svg>');
+  background-size: 180px 180px, 140px 140px, 100px 100px, 160px 160px, 120px 120px;
+  background-position: 0 0, 90px 90px, 50px 150px, 200px 50px, 150px 200px;
+  animation: gardenBreeze 30s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes gardenBreeze {
+  0% { transform: translateX(0px) translateY(0px) rotate(0deg); }
+  100% { transform: translateX(-100px) translateY(-50px) rotate(10deg); }
+}
+
+.garden-header {
+  text-align: center;
+  padding: 40px 20px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.garden-title {
+  font-size: 48px;
+  font-weight: 900;
+  margin-bottom: 15px;
+  color: #ffffff;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+  letter-spacing: -1px;
+}
+
+.garden-subtitle {
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 500;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  opacity: 0.95;
+}
+
+.garden-container {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 200px);
+  max-width: 600px;
+  margin: 0 auto;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(139, 0, 0, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(220, 20, 60, 0.15) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(220, 20, 60, 0.2), rgba(255, 20, 147, 0.15));
+  border-radius: 35px;
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.puppy-container {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.puppy {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  animation: bounce 3s infinite ease-in-out;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+  border-radius: 15px;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.floating-rose {
+  position: absolute;
+  cursor: pointer;
+  animation: float 4s infinite ease-in-out;
+  transition: all 0.3s ease;
+  z-index: 6;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+}
+
+.rose-image {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.floating-rose:hover {
+  transform: scale(1.3);
+  filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.4));
+}
+
+.floating-rose:hover .rose-image {
+  transform: scale(1.1);
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  25% { 
+    transform: translateY(-15px) rotate(5deg); 
+  }
+  50% { 
+    transform: translateY(-10px) rotate(-3deg); 
+  }
+  75% { 
+    transform: translateY(-20px) rotate(3deg); 
+  }
+}
+
+.sparkles-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 25px;
+  animation: sparkle 3s infinite ease-in-out;
+  opacity: 0.7;
+}
+
+.sparkle:nth-child(1) {
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.sparkle:nth-child(2) {
+  top: 30%;
+  right: 20%;
+  animation-delay: 1s;
+}
+
+.sparkle:nth-child(3) {
+  bottom: 25%;
+  left: 25%;
+  animation-delay: 2s;
+}
+
+@keyframes sparkle {
+  0%, 100% { 
+    opacity: 0.3; 
+    transform: scale(1) rotate(0deg); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.5) rotate(180deg); 
+  }
+}
+
+.garden-tip {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  z-index: 10;
+}
+
+.message-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.message-content {
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(139, 0, 0, 0.4) 0%, transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(220, 20, 60, 0.3) 0%, transparent 60%),
+    linear-gradient(135deg, #8b0000, #dc143c, #ff1493, #c71585);
+  padding: 50px 40px;
+  border-radius: 35px;
+  text-align: center;
+  max-width: 450px;
+  width: 90%;
+  margin: 20px;
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.5), 
+    0 0 0 3px rgba(255, 255, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(25px);
+  position: relative;
+  overflow: hidden;
+}
+
+.message-content::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  animation: shimmer 4s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.message-rose {
+  font-size: 80px;
+  margin-bottom: 25px;
+  animation: pulse 2s infinite;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.message-content h3 {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #ffffff;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 2;
+  letter-spacing: 0.5px;
+}
+
+.message-content h4 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  opacity: 0.95;
+  position: relative;
+  z-index: 2;
+  letter-spacing: 0.3px;
+}
+
+.rose-message {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  line-height: 1.5;
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.message-content small {
+  font-size: 14px;
+  opacity: 0.9;
+  color: #ffffff;
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px 15px;
+  border-radius: 15px;
+  display: inline-block;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .garden-title {
+    font-size: 28px;
+  }
+  
+  .garden-subtitle {
+    font-size: 14px;
+  }
+  
+  .garden-container {
+    margin: 0 10px;
+    height: calc(100vh - 160px);
+    max-width: 95%;
+  }
+  
+  .puppy {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .rose-image {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .message-content {
+    padding: 30px 20px;
+    max-width: 320px;
+    margin: 10px;
+  }
+  
+  .message-content h3 {
+    font-size: 18px;
+  }
+  
+  .message-content h4 {
+    font-size: 16px;
+  }
+  
+  .rose-message {
+    font-size: 16px;
+    padding: 15px;
+  }
+  
+  .message-rose {
+    font-size: 60px;
+  }
+  
+  .garden-tip {
+    font-size: 12px;
+    padding: 10px 20px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .garden-title {
+    font-size: 36px;
+  }
+  
+  .garden-subtitle {
+    font-size: 16px;
+  }
+  
+  .garden-container {
+    margin: 0 15px;
+    height: calc(100vh - 180px);
+  }
+  
+  .puppy {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .rose-image {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .message-content {
+    padding: 40px 30px;
+    max-width: 380px;
+  }
+  
+  .message-content h3 {
+    font-size: 22px;
+  }
+  
+  .message-content h4 {
+    font-size: 18px;
+  }
+  
+  .rose-message {
+    font-size: 18px;
+    padding: 18px;
+  }
+  
+  .message-rose {
+    font-size: 70px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .garden-title {
+    font-size: 48px;
+  }
+  
+  .garden-subtitle {
+    font-size: 18px;
+  }
+  
+  .garden-container {
+    max-width: 650px;
+  }
+  
+  .puppy {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .rose-image {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .message-content {
+    padding: 45px 35px;
+    max-width: 420px;
+  }
+  
+  .message-content h3 {
+    font-size: 24px;
+  }
+  
+  .message-content h4 {
+    font-size: 20px;
+  }
+  
+  .rose-message {
+    font-size: 19px;
+  }
+  
+  .message-rose {
+    font-size: 75px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .garden-title {
+    font-size: 56px;
+  }
+  
+  .garden-subtitle {
+    font-size: 20px;
+  }
+  
+  .garden-container {
+    max-width: 700px;
+  }
+  
+  .puppy {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .rose-image {
+    width: 55px;
+    height: 55px;
+  }
+}
